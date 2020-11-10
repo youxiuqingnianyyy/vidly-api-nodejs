@@ -6,9 +6,8 @@ const express = require("express");
 const router = express.Router();
 
 router.get("/me", auth, async (req, res) => {
-  console.log(req.user);
-  // const user = await User.findById(req.user._id).select("-password");
-  return res.send(req.user);
+  const user = await User.findById(req.user._id).select("-password");
+  return res.send(user);
 });
 
 router.post("/", async (req, res) => {
