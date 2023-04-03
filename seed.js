@@ -40,7 +40,6 @@ const data = [
 
 async function seed() {
   await mongoose.connect(config.get("db"), {
-    useCreateIndex: true,
     useUnifiedTopology: true,
     useNewUrlParser: true,
   });
