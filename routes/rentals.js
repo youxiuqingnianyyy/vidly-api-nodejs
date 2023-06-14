@@ -4,9 +4,12 @@ const { Customer } = require("../models/customer");
 const auth = require("../middleware/auth");
 const mongoose = require("mongoose");
 const Fawn = require("fawn");
+const config = require("config");
 const express = require("express");
 const validations = require("../startup/validations");
 const router = express.Router();
+
+mongoose.connect(config.get("db"));
 
 Fawn.init(mongoose);
 
