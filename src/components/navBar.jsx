@@ -1,7 +1,7 @@
 import React from 'react'
 import {Link, NavLink} from "react-router-dom";
 
-export const NavBar = () => {
+export const NavBar = ({user}) => {
     return (
         <nav className="navbar navbar-expand-lg bg-body-tertiary">
             <div className="container-fluid">
@@ -19,9 +19,20 @@ export const NavBar = () => {
 
                         <NavLink className="nav-link nav-item" to="/rentals">Rentals</NavLink>
 
-                        <NavLink className="nav-link nav-item" to="/login">Login</NavLink>
+                        {!user && (
+                            <React.Fragment>
+                                <NavLink className="nav-link nav-item" to="/login">Login</NavLink>
 
-                        <NavLink className="nav-link nav-item" to="/register">Register</NavLink>
+                                <NavLink className="nav-link nav-item" to="/register">Register</NavLink>
+                            </React.Fragment>
+                        )}
+                        {user && (
+                            <React.Fragment>
+                                <NavLink className="nav-link nav-item" to="/profile">{user.name}</NavLink>
+
+                                <NavLink className="nav-link nav-item" to="/logout">Logout</NavLink>
+                            </React.Fragment>
+                        )}
 
                     </div>
                 </div>
