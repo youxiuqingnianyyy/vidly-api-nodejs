@@ -1,6 +1,5 @@
 import React from 'react'
 import {Redirect, Route} from "react-router-dom";
-import MovieForm from "../movieForm";
 import auth from "../../services/authService";
 
 export const ProtectedRoute = ({path, component: Component, render, ...rest}) => {
